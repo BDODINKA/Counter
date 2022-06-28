@@ -1,0 +1,69 @@
+
+.App {
+    height: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("https://i.pinimg.com/736x/86/2b/68/862b68b2409f1dc2382c90cdfc9bef8a.jpg") no-repeat;
+    background-size: cover;
+}
+
+.wrapper {
+    border: 5px solid #6820C1;
+    border-radius: 5px;
+    width: 300px;
+    height: 300px;
+    box-shadow: inset 0 0 50px #A41B99;
+}
+
+.window {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    color: #965cd1;
+}
+
+.maxWindow {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    color: red;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50%;
+}
+
+.btn {
+    width: 50px;
+    height: 50px;
+    color:  #E652EC;
+    background: #6820C1;
+    font-size: 32px;
+}
+
+.reset {
+    width: 100px;
+    height: 50px;
+    background: #8024CE;
+    color: #E652EC;
+    font-size: 24px;
+}
+
+.disabled {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #8024CE;
+    box-shadow: inset 0 0 10px #8024CE;
+    font-size: 32px;
+    color: black;
+    background: #E652EC;
+}
+
