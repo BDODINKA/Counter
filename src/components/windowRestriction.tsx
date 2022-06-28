@@ -1,7 +1,7 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent} from 'react';
 
 
-export type buttonData = {
+type buttonData = {
     id: string
     title: string
 };
@@ -14,12 +14,15 @@ type propsTypeButton = {
     buttonData: buttonData[]
     onChangeValue: (e:string) => void
     onChangeValueTwo: (e:string) => void
+    clearInput:(e:string)=>void
+    clearInput1:(e:string)=>void
+    value:string
+    value1:string
 };
 
 const WindowRestriction = (props: propsTypeButton) => {
 
-    const [value,setValue]=useState<string>('0')
-    const [value1,setValue1]=useState<string>('0')
+
 
 
     const onClickButtonHandler = (id: string) => {
@@ -35,13 +38,14 @@ const WindowRestriction = (props: propsTypeButton) => {
             </button> : '')
 
     const onChanged = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue(e.currentTarget.value)
+        props.clearInput(e.currentTarget.value)
         props.onChangeValue(e.currentTarget.value)
     }
     const onChangedTwo = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue1(e.currentTarget.value)
+        props.clearInput1(e.currentTarget.value)
         props.onChangeValueTwo(e.currentTarget.value)
     }
+
 
 
     return (
@@ -49,14 +53,14 @@ const WindowRestriction = (props: propsTypeButton) => {
             <div>Max Count
                 <input
                     type="number"
-                    value={value}
+                    value={props.value}
                     onChange={onChanged}
                 />
             </div>
             <div>Min Count
                 <input
                     type="number"
-                    value={value1}
+                    value={props.value1}
                     onChange={onChangedTwo}
                 />
             </div>

@@ -14,9 +14,20 @@ export type AllPropsType = {
 
 export const WindowCount = (props: AllPropsType) => {
 
+
     return (
         <div className='wrapper'>
-            <div className={props.count === props.maxCount ? 'maxWindow' : 'window'}>{props.count}</div>
+
+            {(props.count !== 0 )?
+                <div className={props.count === props.maxCount || props.count === props.minCount ? 'maxWindow' : 'window'}>{props.count}</div>
+                :
+                <div className={'maxWindow'}>{'please enter number'}</div>
+
+            }
+
+
+
+
             <Buttons
                 count={props.count}
                 clickedButton={props.clickedButton}
