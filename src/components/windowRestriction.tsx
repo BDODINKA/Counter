@@ -1,13 +1,5 @@
 import React, {ChangeEvent} from 'react';
 import {btnType} from "../state/state";
-import {Buttons} from "./button";
-
-
-
-type buttonData = {
-    id: string
-    title: string
-};
 
 type propsTypeButton = {
     count: number

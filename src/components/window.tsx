@@ -27,8 +27,6 @@ export const WindowCount = (props:propsTypeButton) => {
     return (
         <div className='wrapper'>
 
-
-
                 {(props.minCount || props.maxCount) ?
                     (Number(props.value) <= Number(props.value1)|| props.maxCount < 0 || isNaN(Number(props.value) || props.minCount)) ?
                         third
@@ -39,6 +37,7 @@ export const WindowCount = (props:propsTypeButton) => {
                         third
                         :
                         second
+
                 }
 
 
