@@ -1,17 +1,13 @@
 import React from 'react';
+import {btnType} from "../state/state";
 
-
-export type buttonData = {
-    id: string
-    title: string
-};
 
 type propsTypeButton = {
     count: number
     clickedButton: (id: string) => void
-    buttonData: buttonData[]
-    minCount:number
-    maxCount:number
+    minCount: number
+    maxCount: number
+    buttonData:btnType[]
 };
 
 export const Buttons = (props: propsTypeButton) => {
@@ -30,8 +26,12 @@ export const Buttons = (props: propsTypeButton) => {
                 {`btn 
                 ${props.count === props.minCount && t.title === '-' && 'disabled'}
                 ${props.count === props.maxCount && t.title === '+' && 'disabled'}
+                ${props.minCount >= props.maxCount && t.title === '+' && 'disabled'}
+                ${props.minCount >= props.maxCount && t.title === '-' && 'disabled'}
                 ${t.title === 'reset' && 'reset'}
+                
                 `}
+
         >
             {t.title}
 

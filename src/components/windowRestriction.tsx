@@ -1,4 +1,7 @@
 import React, {ChangeEvent} from 'react';
+import {btnType} from "../state/state";
+import {Buttons} from "./button";
+
 
 
 type buttonData = {
@@ -11,7 +14,7 @@ type propsTypeButton = {
     clickedButton: (id: string) => void
     minCount: number
     maxCount: number
-    buttonData: buttonData[]
+    buttonData: btnType[]
     onChangeValue: (e:string) => void
     onChangeValueTwo: (e:string) => void
     clearInput:(e:string)=>void
@@ -33,6 +36,13 @@ const WindowRestriction = (props: propsTypeButton) => {
             <button
                 key={t.id}
                 onClick={() => onClickButtonHandler(t.id)}
+                className=
+                    {`set
+                ${props.minCount >= props.maxCount && t.title === 'set' && 'dis'}         
+                ${props.maxCount < 0  && t.title === 'set' && 'dis'}         
+                ${props.value >= props.value1 && t.title === 'set' && 'set'}         
+                `}
+                disabled={!Number(props.value) >= !Number(props.value1)}
                  >
                 {t.title}
             </button> : '')
@@ -50,20 +60,23 @@ const WindowRestriction = (props: propsTypeButton) => {
 
     return (
         <div className='wrapper'>
-            <div>Max Count
-                <input
-                    type="number"
-                    value={props.value}
-                    onChange={onChanged}
-                />
+            <div className='windowRestriction'>
+                    <span>Max Count</span>
+                    <input
+                        type="number"
+                        value={props.value}
+                        onChange={onChanged}
+                    />
+
+                    <span>Min Count</span>
+                    <input
+                        type="number"
+                        value={props.value1}
+                        onChange={onChangedTwo}
+                    />
+
             </div>
-            <div>Min Count
-                <input
-                    type="number"
-                    value={props.value1}
-                    onChange={onChangedTwo}
-                />
-            </div>
+
             <div className='buttons'>
                 {allButtons}
             </div>
